@@ -28,6 +28,8 @@ function! GotoFile(w)
    " Open new window if requested
     if a:w == "new"
         new
+    elseif a:w == "tabnew"
+        tabnew
     endif
     " Use 'find' so path is searched like 'gf' would
     execute 'find ' . pos . ' ' . fname
@@ -39,3 +41,4 @@ set isfname+=: " include colon in filenames
 nnoremap gf :call GotoFile("")<CR>
 nnoremap <C-W>f :call GotoFile("new")<CR>
 nnoremap <C-W><C-F> :call GotoFile("new")<CR>
+nnoremap <C-W>gf :call GotoFile("tabnew")<CR>
